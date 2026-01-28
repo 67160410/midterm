@@ -71,7 +71,7 @@
             display: none;
             margin-top: 25px;
             padding: 15px;
-            background-color: #e9f7ef;
+            background-color: #cbfde1;
             border-left: 4px solid #005714;
             border-radius: 8px;
             }
@@ -125,3 +125,32 @@
     </body>
 
 </html>
+<script>
+    function validateScore(score) {
+// Return: true ถ้า 0-100 และเป็นตัวเลข
+// Return: false ถ้าไม่ถูก
+if (score === "" || score === null || score === undefined){
+    return false;
+}
+
+const num = Number(score)
+
+if(isNaN(num)){
+    return false;
+}
+
+if (num < 0 || num > 100){
+    return false;
+}
+
+return true;
+ }
+ /* ===== TEST ===== */
+console.log("85 =>", validateScore(85));
+console.log('"85" =>', validateScore("85"));
+console.log('"abc" =>', validateScore("abc"));
+console.log("-5 =>", validateScore(-5));
+console.log("105 =>", validateScore(105));
+console.log('"" =>', validateScore(""));
+
+</script>
