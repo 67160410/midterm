@@ -172,8 +172,18 @@ function getGrade(score) {
     return "F";
 }
 /* ====== TEST ====== */
-console.log(getGrade(85)); 
-console.log(getGrade(72)); 
-console.log(getGrade(40)); 
+//console.log(getGrade(85)); 
+//console.log(getGrade(72)); 
+//console.log(getGrade(40)); 
+
+function getStatus(grade) {
+    if (grade === "F") {
+        return "FAIL";
+    }
+    return "PASS";
+}
+/* ====== TEST ====== */
+console.log(getStatus("A"));
+console.log(getStatus("F"));
 
 </script>
