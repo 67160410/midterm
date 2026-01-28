@@ -183,7 +183,88 @@ function getStatus(grade) {
     return "PASS";
 }
 /* ====== TEST ====== */
-console.log(getStatus("A"));
-console.log(getStatus("F"));
+//console.log(getStatus("A"));
+//console.log(getStatus("F"));
+
+function saveToStorage(data) {
+    let storedData = localStorage.getItem("studentData");
+
+    let dataArray = storedData ? JSON.parse(storedData) : [];
+
+    dataArray.push(data);
+
+    localStorage.setItem("studentData", JSON.stringify(dataArray));
+}
+
+// /* ====== TEST ====== */
+// saveToStorage({
+//     name: "John",
+//     subject: "JavaScript",
+//     midterm: 80,
+//     final: 90,
+//     assignment: 70,
+//     score: 82,
+//     grade: "A",
+//     status: "PASS"
+// });
+function loadFromStorage() {
+    const data = localStorage.getItem("studentData");
+
+    if (!data) {
+        return null;
+    }
+
+    return JSON.parse(data);
+}
+
+/* ====== TEST ====== */
+// console.log(loadFromStorage());
+
+function handleCalculate() {
+    const name = document.getElementById("student-name").value.trim();
+    const subject = document.getElementById("subject-name").value.trim();
+    const midterm = document.getElementById("midterm-score").value;
+    const final = document.getElementById("final-score").value;
+    const assignment = document.getElementById("assignment-score").value;
+
+    if (name === "" || subject === "") {
+        alert("Please enter student name and subject");
+        return;
+    }
+
+    if (
+        !validateScore(midterm) ||
+        !validateScore(final) ||
+        !validateScore(assignment)
+    ) {
+        alert("All scores must be between 0-100");
+        return;
+    }
+
+    const totalScore = calculateScore(midterm, final, assignment);
+    const grade = getGrade(totalScore);
+    const status = getStatus(grade);
+
+    document.getElementById("total-score").textContent = totalScore.toFixed(2);
+    document.getElementById("final-grade").textContent = grade;
+    document.getElementById("pass-status").textContent = status;
+    document.getElementById("result-container").style.display = "block";
+
+    const data = {
+        name,
+        subject,
+        midterm: Number(midterm),
+        final: Number(final),
+        assignment: Number(assignment),
+        score: totalScore,
+        grade,
+        status
+    };
+
+    saveToStorage(data);
+}
+document.getElementById("btn-calculate")
+  .addEventListener("click", handleCalculate);
+
 
 </script>
