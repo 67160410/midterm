@@ -162,6 +162,18 @@ function calculateScore(midterm, final, assignment) {
 }
 
 /* ====== TEST ====== */
-console.log(calculateScore(80, 90, 70));
+//console.log(calculateScore(80, 90, 70));
+
+function getGrade(score) {
+    if (score >= 80) return "A";
+    if (score >= 70) return "B";
+    if (score >= 60) return "C";
+    if (score >= 50) return "D";
+    return "F";
+}
+/* ====== TEST ====== */
+console.log(getGrade(85)); 
+console.log(getGrade(72)); 
+console.log(getGrade(40)); 
 
 </script>
