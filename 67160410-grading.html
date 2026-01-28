@@ -266,5 +266,16 @@ function handleCalculate() {
 document.getElementById("btn-calculate")
   .addEventListener("click", handleCalculate);
 
+function handleclear() {
+    document.getElementById("student-name").value = "";
+    document.getElementById("subject-name").value = "";
+    document.getElementById("midterm-score").value = "";
+    document.getElementById("final-score").value = "";
+    document.getElementById("assignment-score").value = "";
+
+    document.getElementById("result-container").style.display = "none";
+
+}
+
 
 </script>
