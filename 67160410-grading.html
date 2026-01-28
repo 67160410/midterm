@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+    <head>
+        <title>Grade Calculator</title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            padding: 30px;
+            }
+             .container {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+            h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            }
+            .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            }
+
+            .form-row label {
+            width: 150px;
+            font-weight: bold;
+            }
+
+            .form-row input {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            }
+            .form-row input:focus {
+            outline: none;
+            background-color: #eef6ff;
+            border-color: #007bff;
+            }
+            .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            }
+
+            button {
+            width: 48%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #ffffff;
+            }
+            #btn-calculate {
+            background-color: #005abb;
+            }
+            #btn-clear {
+            background-color: #6c757d;
+            }
+
+            #result-container {
+            display: none;
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e9f7ef;
+            border-left: 4px solid #005714;
+            border-radius: 8px;
+            }
+
+            #result-container p {
+            margin: 8px 0;
+            font-size: 15px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h2>Grade Calculator</h2>
+
+            <!-- Input Fields -->
+             <div class="form-row">
+                <label>ชื่อนักเรียน</label>
+                <input id="student-name" type="text" placeholder="กรอกชื่อนักเรียน" required />
+                </div>
+             <div class="form-row">
+                <label>ชื่อรายวิชา</label>
+                <input id="subject-name" type="text" placeholder="กรอกชื่อรายวิชา" required />
+                </div>
+            <div class="form-row">
+                <label>คะแนนสอบกลางภาค</label>
+                <input id="midterm-score" type="text" placeholder="กรอกคะแนนสอบกลางภาค" required />
+                </div>
+            <div class="form-row">
+                <label>คะแนนสอบปลายภาค</label>
+                <input id="final-score" type="text" placeholder="กรอกคะแนนสอบปลายภาค" required />
+                </div>
+            <div class="form-row">
+                <label>คะแนนงาน</label>
+                <input id="assignment-score" type="text" placeholder="กรอกคะแนนงาน" required />
+                </div>
+
+            <!-- Buttons -->
+             <div class="button-group">
+                <button id="btn-calculate">Calculate Grade</button>
+                <button id="btn-clear">Clear</button>
+            </div>
+            <!-- Result Section (hidden by default) -->
+            <div id="result-container" style="display: none;">
+            <p>Total Score: <span id="total-score">0</span></p>
+            <p>Final Grade: <span id="final-grade">-</span></p>
+            <p>Status: <span id="pass-status">-</span></p>
+            </div>
+
+    </body>
+
+</html>
