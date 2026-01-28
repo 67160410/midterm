@@ -146,11 +146,22 @@ if (num < 0 || num > 100){
 return true;
  }
  /* ===== TEST ===== */
-console.log("85 =>", validateScore(85));
-console.log('"85" =>', validateScore("85"));
-console.log('"abc" =>', validateScore("abc"));
-console.log("-5 =>", validateScore(-5));
-console.log("105 =>", validateScore(105));
-console.log('"" =>', validateScore(""));
+//console.log("85 =>", validateScore(85));
+//console.log('"85" =>', validateScore("85"));
+//console.log('"abc" =>', validateScore("abc"));
+//console.log("-5 =>", validateScore(-5));
+//console.log("105 =>", validateScore(105));
+//console.log('"" =>', validateScore(""));
+
+function calculateScore(midterm, final, assignment) {
+    const m = Number(midterm);
+    const f = Number(final);
+    const a = Number(assignment);
+
+    return (m * 0.2) + (f * 0.5) + (a * 0.3);
+}
+
+/* ====== TEST ====== */
+console.log(calculateScore(80, 90, 70));
 
 </script>
